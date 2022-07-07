@@ -1,0 +1,3 @@
+[debug] not up to date. inChanged = true, force = false
+[debug] Updating ProjectRef(uri("file:/Users/keith.dumont/dev/scala-challenge/scala-challenge/src/main/scala/project/"), "scala-build")...
+[debug] Done updating ProjectRef(uri("file:/Users/keith.dumont/dev/scala-challenge/scala-challenge/src/main/scala/project/"), "scala-build")
