@@ -31,15 +31,17 @@ object q01 {
       val intArr: Array[Int] = args.map(_.toInt)
       // convert Array to list
       val intList = intArr.toList
+      // filter for real numbers
+      val filtered = intList.filter(_>0)
 
       // tail recursive method to get final sum
-      // val finalSum: Int = sumWithAccumulator(intList, 0)
+      val finalSum: Int = sumWithAccumulator(filtered, 0)
       
       // get final sum
-      val finalSum = sum(intList)
+      // val finalSum = sum(filtered)
 
       // format args for printing
-      val numbers: String = args.mkString(", ")
+      val numbers: String = args.mkString(" + ")
       println(s"The result of adding ${numbers} is ${finalSum}")
     } catch {
       case e: NumberFormatException => println(e)
