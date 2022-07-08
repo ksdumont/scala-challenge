@@ -1,4 +1,4 @@
-object Add {
+object q01 {
   def main(args: Array[String]): Unit = {
 
     // get length of args
@@ -24,4 +24,5 @@ object Add {
     }
   }
 }
+
 
