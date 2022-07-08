@@ -1,4 +1,20 @@
+import scala.annotation.tailrec
+
 object q01 {
+
+  def sum(list: List[Int]): Int = list match {
+    case Nil => 0
+    case x :: xs => x + sum(xs)
+  }
+
+  @tailrec
+  private def sumWithAccumulator(list: List[Int], accumulator: Int): Int = {
+    list match {
+      case Nil => accumulator
+      case x :: xs => sumWithAccumulator(xs, accumulator + x)
+    }
+  }
+  
   def main(args: Array[String]): Unit = {
 
     // get length of args
@@ -13,11 +29,18 @@ object q01 {
     try {
       // converts args to int
       val intArr: Array[Int] = args.map(_.toInt)
-      // sums all args
-      val sum = intArr.sum
+      // convert Array to list
+      val intList = intArr.toList
+
+      // tail recursive method to get final sum
+      // val finalSum: Int = sumWithAccumulator(intList, 0)
+      
+      // get final sum
+      val finalSum = sum(intList)
+
       // format args for printing
       val numbers: String = args.mkString(", ")
-      println(s"The result of adding ${numbers} is ${sum}")
+      println(s"The result of adding ${numbers} is ${finalSum}")
     } catch {
       case e: NumberFormatException => println(e)
       println("Exception: All arguments must be a number")
