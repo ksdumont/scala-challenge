@@ -1,6 +1,6 @@
 import scala.annotation.tailrec
 
-object q01 {
+object q01 extends App {
 
   def sum(list: List[Int]): Int = list match {
     case Nil => 0
@@ -14,29 +14,25 @@ object q01 {
       case x :: xs => sumWithAccumulator(xs, accumulator + x)
     }
   }
-  
-  def main(args: Array[String]): Unit = {
 
-    // get length of args
-    val length: Int = args.length
+  // get length of args
+  val length: Int = args.length
 
-    // check to make sure there are at least two numbers
-    if (length < 2) {
-      println("Please provide at least two numbers so I can add something together.")
-      return
-    }
-
+  // check to make sure there are at least two numbers
+  if (length < 2) {
+    println("Please provide at least two numbers so I can add something together.")
+  } else {
     try {
       // converts args to int
       val intArr: Array[Int] = args.map(_.toInt)
       // convert Array to list
       val intList = intArr.toList
       // filter for real numbers
-      val filtered = intList.filter(_>0)
+      val filtered = intList.filter(_ > 0)
 
       // tail recursive method to get final sum
       val finalSum: Int = sumWithAccumulator(filtered, 0)
-      
+
       // get final sum
       // val finalSum = sum(filtered)
 
@@ -45,7 +41,7 @@ object q01 {
       println(s"The result of adding ${numbers} is ${finalSum}")
     } catch {
       case e: NumberFormatException => println(e)
-      println("Exception: All arguments must be a number")
+        println("Exception: All arguments must be a number")
     }
   }
 }
